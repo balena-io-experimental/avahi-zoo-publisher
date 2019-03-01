@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+    avahi-publisher:
+        build: ./avahi-publisher
+        network_mode: host
+        cap_add:
+            - SYS_RESOURCE
+            - SYS_ADMIN
+        security_opt:
+            - 'apparmor:unconfined'
+        tmpfs:
+            - /run
+            - /sys/fs/cgroup
